@@ -10,6 +10,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .team-card-horizontal {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .team-image-large {
+            flex-shrink: 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+            .team-image-large img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .team-info-horizontal {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+            .team-info-horizontal h3 {
+                margin: 0;
+                font-size: 1.8rem;
+                color: #333;
+            }
+
+        .team-role {
+            color: #666;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .team-bio {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+            .team-social a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: #f0f0f0;
+                border-radius: 50%;
+                color: #333;
+                transition: all 0.3s ease;
+            }
+
+                .team-social a:hover {
+                    background: #333;
+                    color: #fff;
+                }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .team-card-horizontal {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .team-image-large {
+                width: 250px;
+                height: 250px;
+            }
+
+            .team-social {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -116,8 +209,28 @@
                     <h2 class="section-title">Meet The Experts</h2>
                 </div>
             </div>
+
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+
+                <div class="col-12">
+                    <div class="team-card-horizontal">
+                        <div class="team-image-large">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Team Member">
+                        </div>
+                        <div class="team-info-horizontal">
+                            <h3>Virendra Kumawat</h3>
+                            <p class="team-role">Founder & Owner</p>
+                            <p class="team-bio">With over 20 years of experience, Virendra leads our design vision with innovative architectural solutions. He transforms spaces with his keen eye for detail and passion for creating beautiful, functional interiors. He ensures every project runs smoothly, delivering excellence on time and within budget.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--<div class="col-md-6 col-lg-4">
                     <div class="team-card">
                         <div class="team-image">
                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Team Member">
@@ -139,9 +252,9 @@
                             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Team Member">
                         </div>
                         <div class="team-info">
-                            <h3>Priya Desai</h3>
-                            <p class="team-role">Chief Interior Designer</p>
-                            <p class="team-bio">Priya transforms spaces with her keen eye for detail and passion for creating beautiful, functional interiors.</p>
+                            <h3>Virendra Kumawat</h3>
+                            <p class="team-role">Founder & Owner</p>
+                            <p class="team-bio">With over 20 years of experience, Virendra leads our design vision with innovative architectural solutions. He transforms spaces with his keen eye for detail and passion for creating beautiful, functional interiors. He ensures every project runs smoothly, delivering excellence on time and within budget.</p>
                             <div class="team-social">
                                 <a href="#"><i class="bi bi-linkedin"></i></a>
                                 <a href="#"><i class="bi bi-envelope"></i></a>
@@ -164,7 +277,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
