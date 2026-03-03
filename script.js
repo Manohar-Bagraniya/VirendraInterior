@@ -1,3 +1,20 @@
+
+function sendEmail(){
+    let parms={
+        name: document.getElementById("name").value,
+        emailid: document.getElementById("email").value,
+        phoneno: document.getElementById("phone").value,        
+        serviceType: document.getElementById("service").value,
+        projectType: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    }
+
+    emailjs.send("service_hd2b08i","template_u76d8de",parms).then(alert("Emal Sent!!!"))
+}
+
+
+
+
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('mainNav');
@@ -15,22 +32,22 @@ function animateCounters() {
 
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
-        let count = 0;
+    let count = 0;
         
-        const updateCount = () => {
-            const increment = target / speed;
+    const updateCount = () => {
+        const increment = target / speed;
             
-            if (count < target) {
-                count += increment;
-                counter.textContent = Math.ceil(count);
-                setTimeout(updateCount, 10);
-            } else {
-                counter.textContent = target;
-            }
-        };
+    if (count < target) {
+        count += increment;
+        counter.textContent = Math.ceil(count);
+        setTimeout(updateCount, 10);
+    } else {
+        counter.textContent = target;
+    }
+};
         
-        updateCount();
-    });
+updateCount();
+});
 }
 
 // Trigger counter animation when stats section is visible
@@ -43,9 +60,9 @@ const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             animateCounters();
-            observer.unobserve(entry.target);
-        }
-    });
+    observer.unobserve(entry.target);
+}
+});
 }, observerOptions);
 
 const statsSection = document.querySelector('.stats-section');
@@ -69,21 +86,21 @@ filterButtons.forEach(button => {
         galleryItems.forEach(item => {
             const categories = item.getAttribute('data-category');
             
-            if (filterValue === 'all' || categories.includes(filterValue)) {
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, 10);
-            } else {
+        if (filterValue === 'all' || categories.includes(filterValue)) {
+            item.style.display = 'block';
+            setTimeout(() => {
+                item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+        }, 10);
+    } else {
                 item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
+item.style.transform = 'scale(0.8)';
+setTimeout(() => {
+    item.style.display = 'none';
+}, 300);
+}
+});
+});
 });
 
 // Set initial state for gallery items
@@ -133,9 +150,9 @@ function submitForm(event) {
     // Reset form after 3 seconds (optional)
     setTimeout(() => {
         document.getElementById('contactForm').reset();
-        document.getElementById('contactForm').style.display = 'block';
-        document.getElementById('formSuccess').style.display = 'none';
-    }, 5000);
+    document.getElementById('contactForm').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+}, 5000);
 }
 
 // Smooth scroll for anchor links
@@ -158,16 +175,16 @@ if ('IntersectionObserver' in window) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src || img.src;
-                img.classList.add('fade-in');
-                observer.unobserve(img);
-            }
-        });
-    });
+    img.src = img.dataset.src || img.src;
+    img.classList.add('fade-in');
+    observer.unobserve(img);
+}
+});
+});
     
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
+document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+});
 }
 
 // Add animation to elements on scroll
@@ -176,18 +193,18 @@ const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
+entry.target.style.transform = 'translateY(0)';
+}
+});
 }, {
     threshold: 0.1
 });
 
 fadeElements.forEach(element => {
     element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'all 0.8s ease';
-    fadeObserver.observe(element);
+element.style.transform = 'translateY(30px)';
+element.style.transition = 'all 0.8s ease';
+fadeObserver.observe(element);
 });
 
 // Parallax effect for hero section
@@ -197,8 +214,8 @@ window.addEventListener('scroll', function() {
     
     if (heroContent && scrolled < window.innerHeight) {
         heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-        heroContent.style.opacity = 1 - (scrolled / 700);
-    }
+    heroContent.style.opacity = 1 - (scrolled / 700);
+}
 });
 
 // Mobile menu close on link click
@@ -209,11 +226,11 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (window.innerWidth < 992) {
             const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse) {
-                bsCollapse.hide();
-            }
-        }
-    });
+if (bsCollapse) {
+    bsCollapse.hide();
+}
+}
+});
 });
 
 // Preloader (optional - uncomment if you want a loading screen)
@@ -235,9 +252,9 @@ document.querySelectorAll('.service-card').forEach(card => {
         this.style.transform = 'translateY(-10px) rotate(0.5deg)';
     });
     
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) rotate(0deg)';
-    });
+card.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0) rotate(0deg)';
+});
 });
 
 // Team card hover effect
@@ -249,12 +266,12 @@ document.querySelectorAll('.team-card').forEach(card => {
         }
     });
     
-    card.addEventListener('mouseleave', function() {
-        const img = this.querySelector('.team-image img');
-        if (img) {
-            img.style.filter = 'grayscale(20%)';
-        }
-    });
+card.addEventListener('mouseleave', function() {
+    const img = this.querySelector('.team-image img');
+    if (img) {
+        img.style.filter = 'grayscale(20%)';
+    }
+});
 });
 
 // Initialize Bootstrap tooltips if present
@@ -303,20 +320,20 @@ const logoObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
-            logoObserver.unobserve(entry.target);
-        }
-    });
+entry.target.style.transform = 'translateY(0)';
+}, index * 100);
+logoObserver.unobserve(entry.target);
+}
+});
 }, {
     threshold: 0.1
 });
 
 clientLogos.forEach(logo => {
     logo.style.opacity = '0';
-    logo.style.transform = 'translateY(20px)';
-    logo.style.transition = 'all 0.5s ease';
-    logoObserver.observe(logo);
+logo.style.transform = 'translateY(20px)';
+logo.style.transition = 'all 0.5s ease';
+logoObserver.observe(logo);
 });
 
 // Add active state to current page in navigation
@@ -324,9 +341,9 @@ const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
-    } else {
-        link.classList.remove('active');
-    }
+} else {
+    link.classList.remove('active');
+}
 });
 
 // Testimonial card stagger animation
@@ -336,20 +353,20 @@ const testimonialObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 150);
-            testimonialObserver.unobserve(entry.target);
-        }
-    });
+entry.target.style.transform = 'translateY(0)';
+}, index * 150);
+testimonialObserver.unobserve(entry.target);
+}
+});
 }, {
     threshold: 0.1
 });
 
 testimonialCards.forEach(card => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'all 0.6s ease';
-    testimonialObserver.observe(card);
+card.style.transform = 'translateY(30px)';
+card.style.transition = 'all 0.6s ease';
+testimonialObserver.observe(card);
 });
 
 // Add loading animation for gallery images
@@ -357,8 +374,8 @@ document.querySelectorAll('.gallery-image img').forEach(img => {
     img.addEventListener('load', function() {
         this.style.opacity = '1';
     });
-    img.style.opacity = '0';
-    img.style.transition = 'opacity 0.5s ease';
+img.style.opacity = '0';
+img.style.transition = 'opacity 0.5s ease';
 });
 
 // Contact form field animations
@@ -367,9 +384,9 @@ document.querySelectorAll('.form-control, .form-select').forEach(field => {
         this.parentElement.querySelector('.form-label').style.color = 'var(--secondary-color)';
     });
     
-    field.addEventListener('blur', function() {
-        this.parentElement.querySelector('.form-label').style.color = 'var(--text-dark)';
-    });
+field.addEventListener('blur', function() {
+    this.parentElement.querySelector('.form-label').style.color = 'var(--text-dark)';
+});
 });
 
-    console.log('Virendra Interior Design - Website loaded successfully');
+console.log('Virendra Interior Design - Website loaded successfully');
