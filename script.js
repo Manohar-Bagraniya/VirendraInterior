@@ -372,4 +372,4 @@ document.querySelectorAll('.form-control, .form-select').forEach(field => {
     });
 });
 
-console.log('Architecta Interiors - Website loaded successfully');
+    console.log('Virendra Interior Design - Website loaded successfully');
